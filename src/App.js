@@ -54,7 +54,7 @@ const App = () => {
       {showForm && (
         <div className="modal-container" ref={modalRef}>
           <div className="modal">
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form modal-content" onSubmit={handleSubmit}>
               <h2>Fill Details</h2>
               <label for="username">Username:</label>
               <input
@@ -89,11 +89,11 @@ const App = () => {
                 type="date"
                 className="input"
                 value={data.date}
-                id="date"
+                id="dob"
                 name="date"
                 onChange={handleChange}
               />
-              <button type="submit" className="btn">
+              <button type="submit" className="btn submit-button">
                 Submit
               </button>
             </form>
