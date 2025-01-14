@@ -23,8 +23,16 @@ const App = () => {
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!data.email.includes("@")) {
+      alert("Invalid email");
+      return;
+    }
     if (data.phone.length !== 10) {
       alert("Invalid phone number. Please enter a 10-digit phone number");
+      return;
+    }
+    if (!data.date) {
+      alert("Invalid date of birth");
       return;
     }
     let enteredDate = new Date(data.date);
@@ -60,7 +68,6 @@ const App = () => {
               />
               <label for="email">Email Address:</label>
               <input
-                required
                 type="email"
                 className="input"
                 value={data.email}
@@ -70,7 +77,6 @@ const App = () => {
               />
               <label for="phone">Phone Number:</label>
               <input
-                required
                 type="number"
                 className="input"
                 value={data.phone}
@@ -81,7 +87,6 @@ const App = () => {
               <label for="date">Date of Birth:</label>
               <input
                 type="date"
-                required
                 className="input"
                 value={data.date}
                 id="date"
